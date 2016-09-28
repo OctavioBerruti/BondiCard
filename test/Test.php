@@ -23,11 +23,11 @@ class TarjetaTest extends TestCase {
 
   }
 
- /* public function testPagarViajeSinSaldo() {
+  public function testPagarViajeSinSaldo() {
 	$tarjeta = new tarjetaa;
 	$colectivo144Negro = new Colectivo("144 Negro", "Rosario Bus");
-	$this->assertEquals($tarjeta->pagar($colectivo144Negro, "2016/06/30 22:50"), "Saldo Insuficiente <br />", "Cuando pago el pasaje no me deberia dejar pagar y deberia decir que no tengo saldo ");
-  }*/
+	$this->assertEquals($tarjeta->pagar($colectivo144Negro, "2016/06/30 22:50"), false, "Cuando pago el pasaje no me deberia dejar pagar y deberia decir que no tengo saldo ");
+  }
 
   public function testTransbordo() {
 	

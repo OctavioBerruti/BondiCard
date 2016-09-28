@@ -45,7 +45,7 @@ if($this->saldoTarjeta>$this->valorViaje){
 $this->ultimoColectivo=$transporte;
                 $this->ultimaHoraBondi=$fecha_y_hora;
                         }
-else { return "Saldo Insuficiente <br />";}
+else { return false;}
 }
                          else{
       
@@ -58,7 +58,7 @@ if($this->saldoTarjeta>$this->valorViaje){
 }
 
 
-else { return "Saldo Insuficiente <br />";}}
+else { return false;}}
 
 
  
