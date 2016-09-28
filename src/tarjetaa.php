@@ -108,7 +108,7 @@ else {print "saldo insuficiente <br />";}
 
 
          public function saldo(){
-                print "El saldo de la tarjeta es " .  $this->saldoTarjeta . " <br />";
+                return $this->saldoTarjeta;
         }
 
 
