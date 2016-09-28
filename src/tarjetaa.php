@@ -45,20 +45,20 @@ if($this->saldoTarjeta>$this->valorViaje){
 $this->ultimoColectivo=$transporte;
                 $this->ultimaHoraBondi=$fecha_y_hora;
                         }
-else { print "Saldo Insuficiente <br />";}
+else { return "Saldo Insuficiente <br />";}
 }
                          else{
       
                          $this->transbordos=1;
                         $this->valorViaje=2.64;
-If($this->saldoTarjeta>$this->valorViaje){
+if($this->saldoTarjeta>$this->valorViaje){
                         $this->saldoTarjeta=$this->saldoTarjeta-2.64;
                 $this->ultimoColectivo=$transporte;
                 $this->ultimaHoraBondi=$fecha_y_hora;        
 }
 
 
-else { print "Saldo Insuficiente <br />";}}
+else { return "Saldo Insuficiente <br />";}}
 
 
  
@@ -75,10 +75,10 @@ else { print "Saldo Insuficiente <br />";}}
  
                         if($diferencia>=86400 ){
                         $this->valorViaje=12;
-If($this->saldoTarjeta>$this->valorViaje){
+if($this->saldoTarjeta>$this->valorViaje){
                         $this->saldoTarjeta=$this->saldoTarjeta-12;
 $this->ultimaHoraBici=$fecha_y_hora; }
-else {print "saldo insuficiente <br />";}
+else {return "saldo insuficiente <br />";}
                         }
                         else{
                         $this->valorViaje=0;
