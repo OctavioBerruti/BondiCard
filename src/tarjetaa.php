@@ -32,8 +32,8 @@ class tarjetaa implements Tarjeta {
             return $this->cardid;
         }
   
-  public function oDD(){
-                 $fechaActual=getdate();
+  public function oDD($fecha_y_hora){
+                 $fechaActual=getdate($fecha_y_hora);
                 if($fechaActual[wday]>0 && $fechaActual[wday]<6)
                 {
                 
@@ -73,7 +73,7 @@ class tarjetaa implements Tarjeta {
 
          public function pagar(Transporte $transporte, $fecha_y_hora){
                 if($transporte->tipo=="colectivo"){
-                        $this->oDD();
+                        $this->oDD($fecha_y_hora);
                         $this->pagarBondi($transporte,$fecha_y_hora);
                         $this->Linea = $transporte->linea;
                         }
