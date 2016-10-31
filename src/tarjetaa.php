@@ -108,7 +108,7 @@ class tarjetaa implements Tarjeta {
 
 
          public function saldo(){
-                print "El saldo de la tarjeta es " .  $this->saldoTarjeta . " <br />";
+                return $this->saldoTarjeta;
         }
 
 
