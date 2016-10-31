@@ -14,18 +14,21 @@ public function pagar(Transporte $transporte, $fecha_y_hora){
         if($transporte->tipo=="colectivo"){
                 if(strtotime(substr($fecha_y_hora,(0),10)." ".substr($fecha_y_hora,(-5),5))>=strtotime(substr($fecha_y_hora,(0),10)." 07:00") && strtotime(substr($fecha_y_hora,(0),10)." ".substr($fecha_y_hora,(-5),5))<=strtotime(substr($fecha_y_hora,(0),10)." 20:00"))
                 {$this->pagarBondi($transporte,$fecha_y_hora);
+                  $this->Linea = $this->transporte->linea;
                 }
-        else{$this->pagarBondiComun($transporte,$fecha_y_hora);}
+        else{$this->pagarBondiComun($transporte,$fecha_y_hora);
+             $this->Linea = $this->transporte->linea;}
         }
         
                 else{
                         $this->pagarBici($transporte,$fecha_y_hora);
+                        $this->Linea = $this->transporte->patente;
                     }
 
 
         $this->viajes[] = new Viaje($transporte,$this->valorViaje);
         
-        $this->boleto[] = new Boleto($transporte, $fecha_y_hora, $this->tipoBoleto, $this->saldoTarjeta, $this->cardid);
+        $this->boleto[] = new Boleto($transporte, $fecha_y_hora, $this->tipoBoleto, $this->saldoTarjeta, $this->cardid, $this->Linea);
         }
 
 
