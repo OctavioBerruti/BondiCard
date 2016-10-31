@@ -3,17 +3,28 @@
 namespace Poli\Tarjeta;
 
 class tarjetaa implements Tarjeta {
-        public $saldoTarjeta=0;
+  public $saldoTarjeta=0;
         public $ultimoColectivo="";
         public $ultimaHoraBondi=0;
         public $ultimaHoraBici=0;
         public $valorViaje=0;
         public $viajes = [];
         public $transbordos = 0;
+        public $cardid = 0;
+        public $tipoBoleto="tarjeta";
+        public $boleto = [];
+        public $saldo = 0;
+        
 
 
-        public function tipoDePago(){
-                print "tarjeta";
+        public function tipoTarjeta(){
+                return "tarjeta";
+        }
+        public function __construct{
+            $this->cardid=$this->cardid+1;
+        }
+        public function idcard(){
+            return $this->cardid;
         }
 
 
@@ -29,6 +40,7 @@ class tarjetaa implements Tarjeta {
 
 
         $this->viajes[] = new Viaje($transporte,$this->valorViaje);
+        $this->boleto[] = new Boleto($transporte, $fecha_y_hora, $tipoBoleto, $saldoTarjeta, $cardid)
         }
 
 
@@ -39,32 +51,25 @@ class tarjetaa implements Tarjeta {
  
                         if($this->ultimoColectivo==$transporte || $diferencia>=3600 || $this->transbordos==1 ){
                         $this->valorViaje=8;
-if($this->saldoTarjeta>$this->valorViaje){
-                        $this->saldoTarjeta=$this->saldoTarjeta-8;
-                        $this->transbordos=0;
-$this->ultimoColectivo=$transporte;
-                $this->ultimaHoraBondi=$fecha_y_hora;
+                            if($this->saldoTarjeta>$this->valorViaje){
+                                $this->saldoTarjeta=$this->saldoTarjeta-8;
+                                $this->transbordos=0;
+                                $this->ultimoColectivo=$transporte;
+                                $this->ultimaHoraBondi=$fecha_y_hora;
+                            }
+                            else { print "Saldo Insuficiente <br />";}
                         }
-else { return false;}
-}
                          else{
       
-                         $this->transbordos=1;
-                        $this->valorViaje=2.64;
-if($this->saldoTarjeta>$this->valorViaje){
-                        $this->saldoTarjeta=$this->saldoTarjeta-2.64;
-                $this->ultimoColectivo=$transporte;
-                $this->ultimaHoraBondi=$fecha_y_hora;        
-}
-
-
-else { return false;}}
-
-
- 
- 
-                
-                
+                                $this->transbordos=1;
+                                $this->valorViaje=2.64;
+                                    if($this->saldoTarjeta>$this->valorViaje){
+                                        $this->saldoTarjeta=$this->saldoTarjeta-2.64;
+                                        $this->ultimoColectivo=$transporte;
+                                        $this->ultimaHoraBondi=$fecha_y_hora;        
+                                    }
+                                    else { print "Saldo Insuficiente <br />";}
+                            }        
         }
 
 
@@ -75,15 +80,13 @@ else { return false;}}
  
                         if($diferencia>=86400 ){
                         $this->valorViaje=12;
-if($this->saldoTarjeta>$this->valorViaje){
-                        $this->saldoTarjeta=$this->saldoTarjeta-12;
-$this->ultimaHoraBici=$fecha_y_hora; }
-else {return "saldo insuficiente <br />";}
+                            if($this->saldoTarjeta>$this->valorViaje){
+                            $this->saldoTarjeta=$this->saldoTarjeta-12;
+                            $this->ultimaHoraBici=$fecha_y_hora; }
+                            else {print "saldo insuficiente <br />";}
                         }
                         else{
                         $this->valorViaje=0;
-
-
                         }
  
                                 
@@ -108,7 +111,7 @@ else {return "saldo insuficiente <br />";}
 
 
          public function saldo(){
-                return $this->saldoTarjeta;
+                print "El saldo de la tarjeta es " .  $this->saldoTarjeta . " <br />";
         }
 
 
@@ -118,6 +121,5 @@ else {return "saldo insuficiente <br />";}
 }
 
 
+
         }
-
-

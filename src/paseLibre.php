@@ -5,8 +5,14 @@ namespace Poli\Tarjeta;
 class paseLibre extends tarjetaa{
 
 
-        public function tipoDePago(){
-                print "pase libre";
+        public function tipoTarjeta(){
+                return "tarjeta";
+        }
+        public function __construct{
+            $this->cardid=$this->cardid+1;
+        }
+        public function idcard(){
+            return $this->cardid;
         }
 
 
@@ -20,6 +26,7 @@ class paseLibre extends tarjetaa{
 
 
         $this->viajes[] = new Viaje($transporte,$this->valorViaje);
+        $this->boleto[] = new Boleto($transporte, $fecha_y_hora, $tipoBoleto, $saldoTarjeta, $cardid)
         }
 
 
@@ -48,7 +55,6 @@ class paseLibre extends tarjetaa{
 
 
          public function saldo(){
-                print "El pase libre no tiene saldo  <br />";
+                return "El pase libre no tiene saldo  <br />";
         }
         }
-

@@ -16,12 +16,12 @@ class Viaje {
 
 
         public function tipo(){
-                print "el tipo de transporte elegido es " . $this->ttransporte->tipo . " <br />";
+                return $this->ttransporte->tipo;
         }
 
 
         public function monto(){
-                print "el monto del viaje tomado es " . $this->monto . " <br />";
+               return $this->monto;
         }
 
 
@@ -32,10 +32,10 @@ class Viaje {
 
         public function nombre(){
                 if($this->ttransporte->tipo=="colectivo"){
-                        print "la linea del colectivo tomado es " .  $this->ttransporte->linea . " <br />";
+                        return $this->ttransporte->linea;
                 }
                 else{
-                        print "la patente de la bicicleta usada es " .  $this->ttransporte->patente . " <br />";
+                        return $this->ttransporte->patente;
                 }        
         }
 
