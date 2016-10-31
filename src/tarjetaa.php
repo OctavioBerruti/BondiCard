@@ -168,6 +168,8 @@ class tarjetaa implements Tarjeta {
                   return 5400;
                   }
                   
+                }
+                  
                   else{
                     if($fechaActual[wday]==6 && $fechaActual[hours]>6 && $fechaActual[hours]<14)
                     {
@@ -179,7 +181,7 @@ class tarjetaa implements Tarjeta {
                     }
                   }
                   
-                }
+                
             }
         
 
