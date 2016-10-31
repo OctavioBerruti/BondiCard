@@ -11,13 +11,13 @@ class Boleto{
 	public $linea;
 	public $idCard;
 
-	public function __construct (Transporte $transporte, $fecha_y_hora, $this->tipoBoleto, $this->saldoTarjeta, $this->cardid)
+	public function __construct (Transporte $transporte, $fecha_y_hora, $tipoBoleto, $saldoTarjeta, $cardid)
 	{
 		$this->transporte = $transporte;
-		$this->fecha_y_hora=$fecha;
+		$this->fecha=$fecha_y_hora;
 		$this->tipoBoleto=$tipoBoleto;
-		$this->saldoTarjeta=$saldo;
-		$this->cardid = $idCard;
+		$this->saldo=$saldoTarjeta;
+		$this->idCard = $cardid;
 		$this->linea= linea();
 	}
 
