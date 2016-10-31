@@ -28,7 +28,7 @@ public function pagar(Transporte $transporte, $fecha_y_hora){
 
         $this->viajes[] = new Viaje($transporte,$this->valorViaje);
         
-        $this->boleto[] = new Boleto($transporte, $fecha_y_hora, $this->tipoBoleto, $this->saldoTarjeta, $this->cardid, $this->Linea);
+        $this->boleto[] = new Boleto($this->tipoPasaje,$transporte, $fecha_y_hora, $this->tipoBoleto, $this->saldoTarjeta, $this->cardid, $this->Linea);
         }
 
 
@@ -40,6 +40,7 @@ public function pagar(Transporte $transporte, $fecha_y_hora){
                         if($this->ultimoColectivo==$transporte || $diferencia>=3600 || $this->transbordos==1 ){
                         $this->valorViaje=4;
                                 if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
+                                        $this->tipoPasaje="";
                                          $this->saldoTarjeta=$this->saldoTarjeta-4;
                                                 $this->transbordos=0;
                                          $this->ultimoColectivo=$transporte;
@@ -54,6 +55,7 @@ else { print "Saldo Insuficiente <br /> ";}
                          else{
                         $this->valorViaje=1.32;
                                 if($this->saldoTarjeta>$this->valorViaje){
+                                        $this->tipoPasaje="Transbordo";
                                         $this->saldoTarjeta=$this->saldoTarjeta-1.32;
                                         $this->transbordos=1;
                                         $this->ultimoColectivo=$transporte;
@@ -76,6 +78,7 @@ else { print "Saldo Insuficiente <br /> ";}
                         if($this->ultimoColectivo==$transporte || $diferencia>=3600 || $this->transbordos==1 ){
                         $this->valorViaje=8;
                                 if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
+                                        $this->tipoPasaje="";
                                         $this->saldoTarjeta=$this->saldoTarjeta-8;
                                         $this->transbordos=0;
                                         $this->ultimoColectivo=$transporte;
@@ -90,6 +93,7 @@ else { print "Saldo Insuficiente <br /> ";}
                          else{
                         $this->valorViaje=2.64;
                         if($this->saldoTarjeta>$this->valorViaje){
+                                $this->tipoPasaje="Transbordo";
                         $this->saldoTarjeta=$this->saldoTarjeta-2.64;
                         $this->transbordos=1;
                         $this->ultimoColectivo=$transporte;
@@ -108,9 +112,10 @@ else { print "Saldo Insuficiente <br /> ";}
         protected function pagarBici(Transporte $transporte, $fecha_y_hora){
                 $diferencia=strtotime($fecha_y_hora)-strtotime($this->ultimaHoraBici);
  
-                        if($diferencia>=86400 ){
+                        if($diferencia>=86400 ){                               
                         $this->valorViaje=6;
-                        if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
+                        if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){ 
+                                $this->tipoPasaje="";
                         $this->saldoTarjeta=$this->saldoTarjeta-6;
         $this->ultimaHoraBici=$fecha_y_hora;
                         $this->plus=$this->plus+1;
