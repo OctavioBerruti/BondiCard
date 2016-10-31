@@ -57,7 +57,7 @@ class tarjetaa implements Tarjeta {
                 $diferencia=strtotime($fecha_y_hora)-strtotime($this->ultimaHoraBondi);
                 $this->dif=obtenerDiferenciaDebida();
  
-                        if($this->ultimoColectivo==$transporte || $diferencia>==$this->dif || $this->transbordos==1 ){
+                        if($this->ultimoColectivo==$transporte || $diferencia>=$this->dif || $this->transbordos==1 ){
                         
                         $this->valorViaje=8;
                             if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
