@@ -17,6 +17,8 @@ class tarjetaa implements Tarjeta {
         public $Linea= "";
         public $plus=0;
         public $plusTot=0;
+        public $tipoPasaje="";
+        
        
         
 
@@ -44,7 +46,7 @@ class tarjetaa implements Tarjeta {
 
 
         $this->viajes[] = new Viaje($transporte,$this->valorViaje);
-        $this->boleto[] = new Boleto($transporte, $fecha_y_hora, $this->tipoBoleto, $this->saldoTarjeta, $this->cardid, $this->Linea);
+        $this->boleto[] = new Boleto($this->tipoPasaje, $transporte, $fecha_y_hora, $this->tipoBoleto, $this->saldoTarjeta, $this->cardid, $this->Linea);
         }
 
 
@@ -54,8 +56,10 @@ class tarjetaa implements Tarjeta {
                 $diferencia=strtotime($fecha_y_hora)-strtotime($this->ultimaHoraBondi);
  
                         if($this->ultimoColectivo==$transporte || $diferencia>=3600 || $this->transbordos==1 ){
+                        
                         $this->valorViaje=8;
                             if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
+                              $this->tipoPasaje="";
                                 $this->saldoTarjeta=$this->saldoTarjeta-8;
                                 $this->transbordos=0;
                                 $this->ultimoColectivo=$transporte;
@@ -65,11 +69,11 @@ class tarjetaa implements Tarjeta {
                             }
                             else { print "Saldo Insuficiente <br />";}
                         }
-                         else{
-      
-                                $this->transbordos=1;
+                         else{                                                               
                                 $this->valorViaje=2.64;
                                     if($this->saldoTarjeta>$this->valorViaje){
+                                      $this->transbordos=1;
+                                      $this->tipoPasaje="Transbordo";
                                         $this->saldoTarjeta=$this->saldoTarjeta-2.64;
                                         $this->ultimoColectivo=$transporte;
                                         $this->ultimaHoraBondi=$fecha_y_hora; 
@@ -88,6 +92,7 @@ class tarjetaa implements Tarjeta {
                         if($diferencia>=86400 ){
                         $this->valorViaje=12;
                             if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
+                              $this->tipoPasaje="";
                             $this->saldoTarjeta=$this->saldoTarjeta-12;
                             $this->ultimaHoraBici=$fecha_y_hora; 
                             $this->plus=$this->plus+1;
