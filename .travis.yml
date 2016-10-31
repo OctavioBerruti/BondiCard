@@ -7,7 +7,7 @@ before_script:
 - php composer.phar install
 
 script:
--  - phpunit
+- phpunit
 
 after_script:
 - php vendor/bin/coveralls -v
