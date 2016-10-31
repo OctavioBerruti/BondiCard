@@ -36,8 +36,8 @@ public function pagar(Transporte $transporte, $fecha_y_hora){
 
         protected function pagarBondi(Transporte $transporte, $fecha_y_hora){
                 $diferencia=strtotime($fecha_y_hora)-strtotime($this->ultimaHoraBondi);
- 
-                        if($this->ultimoColectivo==$transporte || $diferencia>=3600 || $this->transbordos==1 ){
+                       $this->dif=obtenerDiferenciaDebida();
+                        if($this->ultimoColectivo==$transporte || $diferencia>=$this->dif || $this->transbordos==1 ){
                         $this->valorViaje=4;
                                 if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
                                         $this->tipoPasaje="";
@@ -74,8 +74,8 @@ else { print "Saldo Insuficiente <br /> ";}
         
         protected function pagarBondiComun(Transporte $transporte, $fecha_y_hora){
                 $diferencia=strtotime($fecha_y_hora)-strtotime($this->ultimaHoraBondi);
- 
-                        if($this->ultimoColectivo==$transporte || $diferencia>=3600 || $this->transbordos==1 ){
+                       $this->dif=obtenerDiferenciaDebida();
+                        if($this->ultimoColectivo==$transporte || $diferencia>=$this->dif || $this->transbordos==1 ){
                         $this->valorViaje=8;
                                 if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
                                         $this->tipoPasaje="";
