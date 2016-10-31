@@ -31,11 +31,11 @@ class tarjetaa implements Tarjeta {
          public function pagar(Transporte $transporte, $fecha_y_hora){
                 if($transporte->tipo=="colectivo"){
                         $this->pagarBondi($transporte,$fecha_y_hora);
-                        $this->Linea = $this->transporte->linea;
+                        $this->Linea = $transporte->linea;
                         }
                 else{
                         $this->pagarBici($transporte,$fecha_y_hora);              
-                        $this->Linea = $this->transporte->patente;
+                        $this->Linea = $transporte->patente;
                     }
          
 
