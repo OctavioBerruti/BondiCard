@@ -16,7 +16,7 @@ class tarjetaa implements Tarjeta {
         public $saldo = 0;
         
 
-        }
+        
         public function __construct(){
             $this->cardid=$this->cardid+1;
         }
