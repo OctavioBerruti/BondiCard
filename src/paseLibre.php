@@ -3,10 +3,10 @@
 namespace Poli\Tarjeta;
 
 class paseLibre extends tarjetaa{
-
+$this->tipoBoleto = "paseLibre";
 
         public function tipoTarjeta(){
-                return "tarjeta";
+                return "paseLibre";
         }
         public function __construct{
             $this->cardid=$this->cardid+1;
