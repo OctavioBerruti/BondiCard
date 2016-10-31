@@ -18,7 +18,7 @@ class Boleto{
                 else{
                         return $this->transporte->patente;
                 }        
-        }*/
+        }
 	public function __construct (Transporte $transporte, $fecha_y_hora, $tipoBoleto, $saldoTarjeta, $cardid)
 	{
 		$this->transporte = $transporte;
