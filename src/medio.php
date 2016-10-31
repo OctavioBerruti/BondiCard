@@ -53,13 +53,11 @@ else { print "Saldo Insuficiente <br /> ";}
 }
                          else{
                         $this->valorViaje=1.32;
-                                if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
+                                if($this->saldoTarjeta>$this->valorViaje){
                                         $this->saldoTarjeta=$this->saldoTarjeta-1.32;
                                         $this->transbordos=1;
                                         $this->ultimoColectivo=$transporte;
-                                        $this->ultimaHoraBondi=$fecha_y_hora;
-                                        $this->plus=$this->plus+1;
-                                      $this->plusTot=$this->plusTot+$this->valorViaje;
+                                        $this->ultimaHoraBondi=$fecha_y_hora;                                
                                         }
                                 else { print "Saldo Insuficiente <br />";}        }
 
@@ -91,13 +89,11 @@ else { print "Saldo Insuficiente <br /> ";}
                         }
                          else{
                         $this->valorViaje=2.64;
-                        if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
+                        if($this->saldoTarjeta>$this->valorViaje){
                         $this->saldoTarjeta=$this->saldoTarjeta-2.64;
                         $this->transbordos=1;
                         $this->ultimoColectivo=$transporte;
-                        $this->ultimaHoraBondi=$fecha_y_hora;
-                        $this->plus=$this->plus+1;
-                        $this->plusTot=$this->plusTot+$this->valorViaje;         
+                        $this->ultimaHoraBondi=$fecha_y_hora;                              
 }
         else { print "Saldo Insuficiente <br />";}        }
 
