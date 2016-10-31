@@ -3,7 +3,7 @@
 namespace Poli\Tarjeta;
 
 class medio extends tarjetaa{
-
+$this->tipoBoleto = "medio boleto";
 
         public function tipoDePago(){
                 print "medio boleto";
