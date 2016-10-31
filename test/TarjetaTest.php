@@ -8,7 +8,6 @@ use PHPUnit\Framework\TestCase;
 class TarjetaTest extends TestCase {
 
   public function testCargaSaldo() {
-	public $tipoBoleto;
     $tarjeta = new tarjetaa;
     $tarjeta->recargar(272);
     $this->assertEquals($tarjeta->saldo(), 320, "Cuando cargo 272 deberia tener finalmente 320");
