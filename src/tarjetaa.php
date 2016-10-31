@@ -18,6 +18,7 @@ class tarjetaa implements Tarjeta {
         public $plus=0;
         public $plusTot=0;
         public $tipoPasaje="";
+        public $dif=0;
         
        
         
@@ -52,10 +53,11 @@ class tarjetaa implements Tarjeta {
 
 
 
-        protected function pagarBondi(Transporte $transporte, $fecha_y_hora){
+        protected function pagarBondi(Transporte $transporte, $fecha_y_hora){             
                 $diferencia=strtotime($fecha_y_hora)-strtotime($this->ultimaHoraBondi);
+                $this->dif=obtenerDiferenciaDebida();
  
-                        if($this->ultimoColectivo==$transporte || $diferencia>=3600 || $this->transbordos==1 ){
+                        if($this->ultimoColectivo==$transporte || $diferencia>=$this->dif || $this->transbordos==1 ){
                         
                         $this->valorViaje=8;
                             if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
@@ -88,7 +90,7 @@ class tarjetaa implements Tarjeta {
 
         protected function pagarBici(Transporte $transporte, $fecha_y_hora){
                 $diferencia=strtotime($fecha_y_hora)-strtotime($this->ultimaHoraBici);
- 
+                
                         if($diferencia>=86400 ){
                         $this->valorViaje=12;
                             if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
@@ -153,5 +155,33 @@ class tarjetaa implements Tarjeta {
 }
 
 
+            public function obtenerDiferenciaDebida(){
+                 $fechaActual=getdate();
+                if($fechaActual[wday]>0 && $fechaActual[wday]<6)
+                {
+                
+                  if($fechaActual[hours]>6 && $fechaActual[hours]<22)
+                  {
+                   return 3600;
+                  }
+                  else{
+                  return 5400;
+                  }
+                  
+                  else{
+                    if($fechaActual[wday]==6 && $fechaActual[hours]>6 && $fechaActual[hours]<14)
+                    {
+                      return 3600;
+                    }
+                    else
+                    {
+                      return 5400;
+                    }
+                  }
+                  
+                }
+            }
+        
 
-        }
+
+}
