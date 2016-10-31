@@ -11,14 +11,14 @@ class Boleto{
 	public $linea;
 	public $idCard;
 
-	public function lineaa(){
+	/*public function lineaa(){
                 if($this->transporte->tipo=="colectivo"){
                         return $this->transporte->linea;
                 }
                 else{
                         return $this->transporte->patente;
                 }        
-        }
+        }*/
 	public function __construct (Transporte $transporte, $fecha_y_hora, $tipoBoleto, $saldoTarjeta, $cardid)
 	{
 		$this->transporte = $transporte;
@@ -26,7 +26,7 @@ class Boleto{
 		$this->tipoBoleto=$tipoBoleto;
 		$this->saldo=$saldoTarjeta;
 		$this->idCard = $cardid;
-		$this->linea= lineaa();
+		//$this->linea= lineaa();
 	}
 
 
