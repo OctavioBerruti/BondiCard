@@ -15,6 +15,9 @@ class tarjetaa implements Tarjeta {
         public $boleto = [];
         public $saldo = 0;
         public $Linea= "";
+        public $plus=0;
+        public $plusTot=0;
+       
         
 
         
@@ -52,11 +55,13 @@ class tarjetaa implements Tarjeta {
  
                         if($this->ultimoColectivo==$transporte || $diferencia>=3600 || $this->transbordos==1 ){
                         $this->valorViaje=8;
-                            if($this->saldoTarjeta>$this->valorViaje){
+                            if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
                                 $this->saldoTarjeta=$this->saldoTarjeta-8;
                                 $this->transbordos=0;
                                 $this->ultimoColectivo=$transporte;
                                 $this->ultimaHoraBondi=$fecha_y_hora;
+                                $this->plus=$this->plus+1;                              
+                                $this->plusTot=$this->plusTot+$this->valorViaje;                                
                             }
                             else { print "Saldo Insuficiente <br />";}
                         }
@@ -64,10 +69,12 @@ class tarjetaa implements Tarjeta {
       
                                 $this->transbordos=1;
                                 $this->valorViaje=2.64;
-                                    if($this->saldoTarjeta>$this->valorViaje){
+                                    if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
                                         $this->saldoTarjeta=$this->saldoTarjeta-2.64;
                                         $this->ultimoColectivo=$transporte;
-                                        $this->ultimaHoraBondi=$fecha_y_hora;        
+                                        $this->ultimaHoraBondi=$fecha_y_hora; 
+                                      $this->plus=$this->plus+1;
+                                      $this->plusTot=$this->plusTot+$this->valorViaje; 
                                     }
                                     else { print "Saldo Insuficiente <br />";}
                             }        
@@ -81,9 +88,12 @@ class tarjetaa implements Tarjeta {
  
                         if($diferencia>=86400 ){
                         $this->valorViaje=12;
-                            if($this->saldoTarjeta>$this->valorViaje){
+                            if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
                             $this->saldoTarjeta=$this->saldoTarjeta-12;
-                            $this->ultimaHoraBici=$fecha_y_hora; }
+                            $this->ultimaHoraBici=$fecha_y_hora; 
+                            $this->plus=$this->plus+1;
+                              $this->plusTot=$this->plusTot+$this->valorViaje; 
+                            }
                             else {print "saldo insuficiente <br />";}
                         }
                         else{
@@ -96,6 +106,23 @@ class tarjetaa implements Tarjeta {
 
 
          public function recargar($monto){
+                if($monto>=$this->plusTot)
+                {
+                  $this->plus=0;
+                  $this->plusTot=0;
+                }
+                else
+                {
+                  if ($monto>=($this->plusTot/2))
+                  {
+                  $this->plus=1;
+                  $this->plusTot=$this->plusTot/2;
+                  }
+                  else
+                  {
+                  print "recarga un poco RATON ";
+                  }
+                }
                 if($monto==272){ 
                         $this->saldoTarjeta=$this->saldoTarjeta+320;
                         print "Se recargó con éxito 320 pesos en la tarjeta <br />";
