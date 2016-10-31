@@ -8,10 +8,10 @@ class Boleto{
 	public $fecha;
 	public $tipoBoleto;
 	public $saldo;
-	public $linea;
+	public $lineabondi;
 	public $idCard;
 
-	/*public function lineaa(){
+	public function lineaa(){
                 if($this->transporte->tipo=="colectivo"){
                         return $this->transporte->linea;
                 }
@@ -26,14 +26,14 @@ class Boleto{
 		$this->tipoBoleto=$tipoBoleto;
 		$this->saldo=$saldoTarjeta;
 		$this->idCard = $cardid;
-		//$this->linea= lineaa();
+		$this->lineabondi= lineaa();
 	}
 
 
 	
 
     public function informacion(){
-    	print "La informacion del boleto es la siguiente: <br /> Linea o patente: ". $this->linea . "<br />Fecha del boleto: " . $this->fecha . "<br /> Tipo de boleto: " . $this->tipoBoleto . "<br /> Saldo restante: " . $this->saldo . "<br /> Numero de tarjeta: " . $this->idCard ;
+    	print "La informacion del boleto es la siguiente: <br /> Linea o patente: ". $this->lineabondi . "<br />Fecha del boleto: " . $this->fecha . "<br /> Tipo de boleto: " . $this->tipoBoleto . "<br /> Saldo restante: " . $this->saldo . "<br /> Numero de tarjeta: " . $this->idCard ;
     }
 
 }
