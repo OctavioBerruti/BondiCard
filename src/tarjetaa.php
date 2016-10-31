@@ -18,6 +18,7 @@ class tarjetaa implements Tarjeta {
         public $plus=0;
         public $plusTot=0;
         public $tipoPasaje="";
+        public $dif=0;
         
         
        
@@ -38,10 +39,10 @@ class tarjetaa implements Tarjeta {
                 
                   if($fechaActual[hours]>6 && $fechaActual[hours]<22)
                   {
-                   return 3600;
+                   $this->dif= 3600;
                   }
                   else{
-                  return 5400;
+                  $this->dif= 5400;
                   }
                   
                 }
@@ -49,11 +50,11 @@ class tarjetaa implements Tarjeta {
                   else{
                     if($fechaActual[wday]==6 && $fechaActual[hours]>6 && $fechaActual[hours]<14)
                     {
-                      return 3600;
+                      $this->dif= 3600;
                     }
                     else
                     {
-                      return 5400;
+                      $this->dif= 5400;
                     }
                   }
                   
@@ -84,9 +85,9 @@ class tarjetaa implements Tarjeta {
 
         protected function pagarBondi(Transporte $transporte, $fecha_y_hora){             
                 $diferencia=strtotime($fecha_y_hora)-strtotime($this->ultimaHoraBondi);
-                $dif=obtenerDiferenciaDebida();
+                obtenerDiferenciaDebida();
  
-                        if($this->ultimoColectivo==$transporte || $diferencia>=$dif || $this->transbordos==1 ){
+                        if($this->ultimoColectivo==$transporte || $diferencia>=$this->dif || $this->transbordos==1 ){
                         
                         $this->valorViaje=8;
                             if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
