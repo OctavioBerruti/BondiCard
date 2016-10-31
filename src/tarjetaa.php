@@ -32,7 +32,7 @@ class tarjetaa implements Tarjeta {
             return $this->cardid;
         }
   
-  public function obtenerDiferenciaDebida(){
+  public function oDD(){
                  $fechaActual=getdate();
                 if($fechaActual[wday]>0 && $fechaActual[wday]<6)
                 {
@@ -92,7 +92,7 @@ class tarjetaa implements Tarjeta {
 
         protected function pagarBondi(Transporte $transporte, $fecha_y_hora){             
                 $diferencia=strtotime($fecha_y_hora)-strtotime($this->ultimaHoraBondi);
-                obtenerDiferenciaDebida();
+                oDD();
  
                         if($this->ultimoColectivo==$transporte || $diferencia>=$this->dif || $this->transbordos==1 ){
                         
