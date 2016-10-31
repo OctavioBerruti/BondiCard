@@ -8,6 +8,5 @@ public function pagar(Transporte $transporte, $fecha_y_hora);
  public function saldo();
  public function viajesRealizados();
  public function idcard();
- public function tipoTarjeta();
 }
 
