@@ -20,7 +20,7 @@ class tarjetaa implements Tarjeta {
         public function tipoTarjeta(){
                 return "tarjeta";
         }
-        public function __construct{
+        public function __construct(){
             $this->cardid=$this->cardid+1;
         }
         public function idcard(){
