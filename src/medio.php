@@ -12,7 +12,7 @@ $this->tipoBoleto = "medio boleto";
 
 public function pagar(Transporte $transporte, $fecha_y_hora){
         if($transporte->tipo=="colectivo"){
-               $this->oDD();
+               $this->oDD($fecha_y_hora);
                 if(strtotime(substr($fecha_y_hora,(0),10)." ".substr($fecha_y_hora,(-5),5))>=strtotime(substr($fecha_y_hora,(0),10)." 07:00") && strtotime(substr($fecha_y_hora,(0),10)." ".substr($fecha_y_hora,(-5),5))<=strtotime(substr($fecha_y_hora,(0),10)." 20:00"))
                 {$this->pagarBondi($transporte,$fecha_y_hora);
                   $this->Linea = $transporte->linea;
