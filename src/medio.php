@@ -25,7 +25,7 @@ public function pagar(Transporte $transporte, $fecha_y_hora){
 
         $this->viajes[] = new Viaje($transporte,$this->valorViaje);
         
-        $this->boleto[] = new Boleto($transporte, $fecha_y_hora, $tipoBoleto, $saldoTarjeta, $cardid);
+        $this->boleto[] = new Boleto($transporte, $fecha_y_hora, $this->tipoBoleto, $this->saldoTarjeta, $this->cardid);
         }
 
 
