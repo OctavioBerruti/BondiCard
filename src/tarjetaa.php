@@ -73,7 +73,7 @@ class tarjetaa implements Tarjeta {
 
          public function pagar(Transporte $transporte, $fecha_y_hora){
                 if($transporte->tipo=="colectivo"){
-                        oDD();
+                        $this->oDD();
                         $this->pagarBondi($transporte,$fecha_y_hora);
                         $this->Linea = $transporte->linea;
                         }
