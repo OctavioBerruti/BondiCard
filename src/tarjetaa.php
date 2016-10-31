@@ -30,6 +30,35 @@ class tarjetaa implements Tarjeta {
         public function idcard(){
             return $this->cardid;
         }
+  
+  public function obtenerDiferenciaDebida(){
+                 $fechaActual=getdate();
+                if($fechaActual[wday]>0 && $fechaActual[wday]<6)
+                {
+                
+                  if($fechaActual[hours]>6 && $fechaActual[hours]<22)
+                  {
+                   return 3600;
+                  }
+                  else{
+                  return 5400;
+                  }
+                  
+                }
+                  
+                  else{
+                    if($fechaActual[wday]==6 && $fechaActual[hours]>6 && $fechaActual[hours]<14)
+                    {
+                      return 3600;
+                    }
+                    else
+                    {
+                      return 5400;
+                    }
+                  }
+                  
+                
+            }
 
 
 
@@ -155,34 +184,7 @@ class tarjetaa implements Tarjeta {
 }
 
 
-            public function obtenerDiferenciaDebida(){
-                 $fechaActual=getdate();
-                if($fechaActual[wday]>0 && $fechaActual[wday]<6)
-                {
-                
-                  if($fechaActual[hours]>6 && $fechaActual[hours]<22)
-                  {
-                   return 3600;
-                  }
-                  else{
-                  return 5400;
-                  }
-                  
-                }
-                  
-                  else{
-                    if($fechaActual[wday]==6 && $fechaActual[hours]>6 && $fechaActual[hours]<14)
-                    {
-                      return 3600;
-                    }
-                    else
-                    {
-                      return 5400;
-                    }
-                  }
-                  
-                
-            }
+            
         
 
 
