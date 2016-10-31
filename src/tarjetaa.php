@@ -18,7 +18,7 @@ class tarjetaa implements Tarjeta {
         public $plus=0;
         public $plusTot=0;
         public $tipoPasaje="";
-        public $dif=0;
+        
         
        
         
@@ -55,9 +55,9 @@ class tarjetaa implements Tarjeta {
 
         protected function pagarBondi(Transporte $transporte, $fecha_y_hora){             
                 $diferencia=strtotime($fecha_y_hora)-strtotime($this->ultimaHoraBondi);
-                $this->dif=obtenerDiferenciaDebida();
+                $dif=obtenerDiferenciaDebida();
  
-                        if($this->ultimoColectivo==$transporte || $diferencia>=$this->dif || $this->transbordos==1 ){
+                        if($this->ultimoColectivo==$transporte || $diferencia>=$dif || $this->transbordos==1 ){
                         
                         $this->valorViaje=8;
                             if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
