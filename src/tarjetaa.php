@@ -69,12 +69,11 @@ class tarjetaa implements Tarjeta {
       
                                 $this->transbordos=1;
                                 $this->valorViaje=2.64;
-                                    if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
+                                    if($this->saldoTarjeta>$this->valorViaje){
                                         $this->saldoTarjeta=$this->saldoTarjeta-2.64;
                                         $this->ultimoColectivo=$transporte;
                                         $this->ultimaHoraBondi=$fecha_y_hora; 
-                                      $this->plus=$this->plus+1;
-                                      $this->plusTot=$this->plusTot+$this->valorViaje; 
+                                    
                                     }
                                     else { print "Saldo Insuficiente <br />";}
                             }        
