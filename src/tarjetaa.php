@@ -73,6 +73,7 @@ class tarjetaa implements Tarjeta {
 
          public function pagar(Transporte $transporte, $fecha_y_hora){
                 if($transporte->tipo=="colectivo"){
+                        oDD();
                         $this->pagarBondi($transporte,$fecha_y_hora);
                         $this->Linea = $transporte->linea;
                         }
@@ -92,7 +93,7 @@ class tarjetaa implements Tarjeta {
 
         protected function pagarBondi(Transporte $transporte, $fecha_y_hora){             
                 $diferencia=strtotime($fecha_y_hora)-strtotime($this->ultimaHoraBondi);
-                oDD();
+                
  
                         if($this->ultimoColectivo==$transporte || $diferencia>=$this->dif || $this->transbordos==1 ){
                         
