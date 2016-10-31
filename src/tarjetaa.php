@@ -10,7 +10,7 @@ class tarjetaa implements Tarjeta {
         public $valorViaje=0;
         public $viajes = [];
         public $transbordos = 0;
-        public $cardid = 0;
+        public $cardid = 0; 
         public $tipoBoleto="tarjeta";
         public $boleto = [];
         public $saldo = 0;
