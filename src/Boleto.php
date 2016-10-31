@@ -19,7 +19,7 @@ class Boleto{
 		$this->tipoBoleto=$tipoBoleto;
 		$this->saldo=$saldoTarjeta;
 		$this->idCard = $cardid;
-		$this->linea = $Linea
+		$this->linea = $Linea;
 	}
 	
 
