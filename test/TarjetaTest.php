@@ -37,7 +37,7 @@ $colectivo144Negro = new Colectivo("144 Negro", "Rosario Bus");
 $tarjeta3->pagar($colectivo144Negro, "2016/06/30 22:50");
 $colectivo135 = new Colectivo("135", "Rosario Bus");
 $tarjeta3->pagar($colectivo135, "2016/06/30 23:10");
-$this->assertEquals($tarjeta3->saldo(), 0, "Cuando pago el pasaje me deberian quedar 309.36 pesos");
+$this->assertEquals($tarjeta3->saldo(), 309.36, "Cuando pago el pasaje me deberian quedar 309.36 pesos");
 
   }
 
