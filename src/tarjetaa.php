@@ -33,7 +33,7 @@ class tarjetaa implements Tarjeta {
         }
   
   public function oDD($fecha_y_hora){
-                 $fechaActual=getdate($fecha_y_hora);
+                 $fechaActual=getdate(/*$fecha_y_hora*/);
                 if($fechaActual['wday']>0 && $fechaActual['wday']<6)
                 {
                 
