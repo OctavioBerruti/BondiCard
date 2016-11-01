@@ -32,7 +32,7 @@ class tarjetaa implements Tarjeta {
             return $this->cardid;
         }
   
-  public function oDD($fecha_y_hora){
+  public function oDD(/*$fecha_y_hora*/){
                  $fechaActual=getdate($fecha_y_hora);
                 if($fechaActual[wday]>0 && $fechaActual[wday]<6)
                 {
