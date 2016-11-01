@@ -34,10 +34,10 @@ class tarjetaa implements Tarjeta {
   
   public function oDD($fecha_y_hora){
                  $fechaActual=getdate(/*$fecha_y_hora*/);
-                if($fechaActual[wday]>0 && $fechaActual[wday]<6)
+                if($fechaActual['wday']>0 && $fechaActual['wday']<6)
                 {
                 
-                  if($fechaActual[hours]>6 && $fechaActual[hours]<22)
+                  if($fechaActual['hours']>6 && $fechaActual['hours']<22)
                   {
                    $this->dif= 3600;
                     
@@ -51,7 +51,7 @@ class tarjetaa implements Tarjeta {
                 }
                   
                   else{
-                    if($fechaActual[wday]==6 && $fechaActual[hours]>6 && $fechaActual[hours]<14)
+                    if($fechaActual['wday']==6 && $fechaActual['hours']>6 && $fechaActual['hours']<14)
                     {
                       $this->dif= 3600;
                       
