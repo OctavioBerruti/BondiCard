@@ -39,7 +39,7 @@ class tarjetaa implements Tarjeta {
                 
                   if($fechaActual['hours']>6 && $fechaActual['hours']<22)
                   {
-                   $this->dif= 5400;
+                   $this->dif= /*3600*/2000000;
                     
                   }
                   else{
