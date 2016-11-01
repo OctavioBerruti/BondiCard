@@ -40,12 +40,12 @@ class tarjetaa implements Tarjeta {
                   if($fechaActual[hours]>6 && $fechaActual[hours]<22)
                   {
                    $this->dif= 3600;
-                    return $this->dif;
+                    
                   }
                   else{
                   $this->dif= 5400;
                     
-                    return $this->dif;
+                   
                   }
                   
                 }
@@ -55,13 +55,13 @@ class tarjetaa implements Tarjeta {
                     {
                       $this->dif= 3600;
                       
-                    return $this->dif;
+                   
                     }
                     else
                     {
                       $this->dif= 5400;
                       
-                    return $this->dif;
+                    
                     }
                   }
                   
