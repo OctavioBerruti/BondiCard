@@ -3,7 +3,7 @@
 namespace Poli\Tarjeta;
 
 class paseLibre extends tarjetaa{
-$this->tipoBoleto = "paseLibre";
+public $tipoBoleto="paseLibre";
 
         public function tipoTarjeta(){
                 return "paseLibre";
