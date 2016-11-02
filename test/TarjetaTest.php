@@ -12,6 +12,16 @@ class TarjetaTest extends TestCase {
     $tarjeta->recargar(272);
     $this->assertEquals($tarjeta->saldo(), 320, "Cuando cargo 272 deberia tener finalmente 320");
   }
+	public function testCargaSaldoMedio() {
+    $tarjeta = new medio;
+    $tarjeta->recargar(272);
+    $this->assertEquals($tarjeta->saldo(), 320, "Cuando cargo 272 deberia tener finalmente 320");
+  }
+	public function testCargaSaldoPaseLibre() {
+    $tarjeta = new paseLibre;
+    $tarjeta->recargar(272);
+    $this->assertEquals($tarjeta->saldo(), falso, "Cuando cargo no me deberia dejar cargar");
+  }
 
 
   public function testPagarViaje() {
@@ -20,6 +30,23 @@ class TarjetaTest extends TestCase {
 	$colectivo144Negro = new Colectivo("144 Negro", "Rosario Bus");
 	$tarjeta1->pagar($colectivo144Negro, "2016/06/30 22:50");
 	$this->assertEquals($tarjeta1->saldo(), 320 - 8, "Cuando pago el pasaje me deberian quedar 312 pesos");	
+
+  }
+	
+	 public function testPagarViajeMedio() {
+	$tarjeta1 = new medio;
+	$tarjeta1->recargar(272);
+	$colectivo144Negro = new Colectivo("144 Negro", "Rosario Bus");
+	$tarjeta1->pagar($colectivo144Negro, "2016/06/30 22:50");
+	$this->assertEquals($tarjeta1->saldo(), 320 - 4, "Cuando pago el pasaje me deberian quedar 316 pesos");	
+
+  }
+	 public function testPagarViajePaseLibre() {
+	$tarjeta1 = new paseLibre;
+	$tarjeta1->recargar(272);
+	$colectivo144Negro = new Colectivo("144 Negro", "Rosario Bus");
+	$tarjeta1->pagar($colectivo144Negro, "2016/06/30 22:50");
+	$this->assertEquals($tarjeta1->saldo(), "Cuando pago el pasaje me deberian quedar 0 pesos ya que no tiene saldo el paseLibre");	
 
   }
 
