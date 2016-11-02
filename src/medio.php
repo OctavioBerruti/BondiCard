@@ -38,21 +38,33 @@ public function pagar(Transporte $transporte, $fecha_y_hora){
         protected function pagarBondi(Transporte $transporte, $fecha_y_hora){
                 $diferencia=strtotime($fecha_y_hora)-strtotime($this->ultimaHoraBondi);
                        
-                        if($this->ultimoColectivo==$transporte || $diferencia>=$this->dif  || $this->transbordos==1 ){
+                        
+                                if($this->ultimoColectivo==$transporte || $diferencia>=$this->dif || $this->transbordos==1 ){
+                        
                         $this->valorViaje=4;
-                                if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
-                                        $this->tipoPasaje="";
-                                         $this->saldoTarjeta=$this->saldoTarjeta-4;
-                                                $this->transbordos=0;
-                                         $this->ultimoColectivo=$transporte;
-                                        $this->ultimaHoraBondi=$fecha_y_hora;  
-                                        $this->plus=$this->plus+1;                              
-                                        $this->plusTot=$this->plusTot+$this->valorViaje;  
-                                        }
+                            if($this->saldoTarjeta>$this->valorViaje){
+                              $this->tipoPasaje="";
+                                $this->saldoTarjeta=$this->saldoTarjeta-4;
+                                $this->transbordos=0;
+                                $this->ultimoColectivo=$transporte;
+                                $this->ultimaHoraBondi=$fecha_y_hora;                                                           
+                            }
+                            else { 
+                              if($this->plus < 2)
+                              {
+                                $this->tipoPasaje="";
+                                $this->saldoTarjeta=$this->saldoTarjeta-4;
+                                $this->transbordos=0;
+                                $this->ultimoColectivo=$transporte;
+                                $this->ultimaHoraBondi=$fecha_y_hora;
+                                $this->plus=$this->plus+1;                              
+                                $this->plusTot=$this->plusTot+$this->valorViaje;   
+                              }
+                              else
+                              {
+                                print "Saldo Insuficiente <br />";}
+                              }
 
-
-else { print "Saldo Insuficiente <br /> ";}
-}
                          else{
                         $this->valorViaje=1.32;
                                 if($this->saldoTarjeta>$this->valorViaje){
@@ -77,20 +89,31 @@ else { print "Saldo Insuficiente <br /> ";}
                 $diferencia=strtotime($fecha_y_hora)-strtotime($this->ultimaHoraBondi);
                       
                         if($this->ultimoColectivo==$transporte || $diferencia>=$this->dif || $this->transbordos==1 ){
+                        
                         $this->valorViaje=8;
-                                if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
-                                        $this->tipoPasaje="";
-                                        $this->saldoTarjeta=$this->saldoTarjeta-8;
-                                        $this->transbordos=0;
-                                        $this->ultimoColectivo=$transporte;
-                                        $this->ultimaHoraBondi=$fecha_y_hora;    
-                                        $this->plus=$this->plus+1;                              
-                                        $this->plusTot=$this->plusTot+$this->valorViaje;    
-                                        }
-
-
-                                else { print "Saldo Insuficiente <br /> ";}
-                        }
+                            if($this->saldoTarjeta>$this->valorViaje){
+                              $this->tipoPasaje="";
+                                $this->saldoTarjeta=$this->saldoTarjeta-8;
+                                $this->transbordos=0;
+                                $this->ultimoColectivo=$transporte;
+                                $this->ultimaHoraBondi=$fecha_y_hora;                                                           
+                            }
+                            else { 
+                              if($this->plus < 2)
+                              {
+                                $this->tipoPasaje="";
+                                $this->saldoTarjeta=$this->saldoTarjeta-8;
+                                $this->transbordos=0;
+                                $this->ultimoColectivo=$transporte;
+                                $this->ultimaHoraBondi=$fecha_y_hora;
+                                $this->plus=$this->plus+1;                              
+                                $this->plusTot=$this->plusTot+$this->valorViaje;   
+                              }
+                              else
+                              {
+                                print "Saldo Insuficiente <br />";
+                              }
+                             }
                          else{
                         $this->valorViaje=2.64;
                         if($this->saldoTarjeta>$this->valorViaje){
