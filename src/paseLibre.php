@@ -28,7 +28,7 @@ public $tipoBoleto="paseLibre";
 
 
         $this->viajes[] = new Viaje($transporte,$this->valorViaje);
-        $this->boleto[] = new Boleto($transporte, $fecha_y_hora, $this->tipoBoleto, $this->saldoTarjeta, $this->cardid, $this->Linea);
+        $this->boleto[] = new Boleto($this->tipoPasaje,$transporte, $fecha_y_hora, $this->tipoBoleto, $this->saldoTarjeta, $this->cardid, $this->Linea);
         }
 
 
