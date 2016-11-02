@@ -39,7 +39,7 @@ class TarjetaTest extends TestCase {
 
   }
 	
-	public function testPagarViaje() {
+	public function testinformacion() {
 	$tarjeta1 = new tarjetaa;
 	$tarjeta1->recargar(272);
 	$colectivo144Negro = new Colectivo("144 Negro", "Rosario Bus");
