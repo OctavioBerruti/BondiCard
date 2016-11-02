@@ -19,4 +19,4 @@ after_success:
 - travis_retry php vendor/bin/coveralls
   
 notifications:
-  email: false
+email: false
