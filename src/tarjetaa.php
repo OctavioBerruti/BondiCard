@@ -183,7 +183,7 @@ class tarjetaa implements Tarjeta {
 
 
          public function saldo(){
-                return $this->saldoTarjeta;
+                return $this->saldoTarjeta-$this->plusTot;
         }
 
 
