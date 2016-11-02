@@ -26,7 +26,7 @@ class Boleto{
 	
 
     public function informacion(){
-    	print "La informacion del boleto es la siguiente: <br /> " . $this->typePass . "<br />Linea o patente: ". $this->linea . "<br />Fecha del boleto: " . $this->fecha . "<br /> Tipo de boleto: " . $this->tipoBoleto . "<br /> Saldo restante: " . $this->saldo . "<br /> Numero de tarjeta: " . $this->idCard ;
+    	return "La informacion del boleto es la siguiente: <br /> " . $this->typePass . "<br />Linea o patente: ". $this->linea . "<br />Fecha del boleto: " . $this->fecha . "<br /> Tipo de boleto: " . $this->tipoBoleto . "<br /> Saldo restante: " . $this->saldo . "<br /> Numero de tarjeta: " . $this->idCard ;
     }
 
 }
