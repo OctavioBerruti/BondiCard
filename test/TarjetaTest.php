@@ -37,7 +37,7 @@ class TarjetaTest extends TestCase {
 	$tarjeta1 = new medio;
 	$tarjeta1->recargar(272);
 	$colectivo144Negro = new Colectivo("144 Negro", "Rosario Bus");
-	$tarjeta1->pagar($colectivo144Negro, "2016/06/30 22:50");
+	$tarjeta1->pagar($colectivo144Negro, "2016/06/30 10:50");
 	$this->assertEquals($tarjeta1->saldo(), 320 - 4, "Cuando pago el pasaje me deberian quedar 316 pesos");	
 
   }
