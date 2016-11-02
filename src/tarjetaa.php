@@ -146,14 +146,26 @@ class tarjetaa implements Tarjeta {
                 
                         if($diferencia>=86400 ){
                         $this->valorViaje=12;
-                            if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
+                            if($this->saldoTarjeta>$this->valorViaje ){
+                              $this->tipoPasaje="";
+                            $this->saldoTarjeta=$this->saldoTarjeta-12;
+                            $this->ultimaHoraBici=$fecha_y_hora;                            
+                            }
+                            else {
+                              
+                              if($this->plus < 2){
                               $this->tipoPasaje="";
                             $this->saldoTarjeta=$this->saldoTarjeta-12;
                             $this->ultimaHoraBici=$fecha_y_hora; 
                             $this->plus=$this->plus+1;
                               $this->plusTot=$this->plusTot+$this->valorViaje; 
+                              
+                              
+                              }
+                              else{
+                              print "saldo insuficiente <br />";
+                              }
                             }
-                            else {print "saldo insuficiente <br />";}
                         }
                         else{
                         $this->valorViaje=0;
