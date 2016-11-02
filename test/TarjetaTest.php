@@ -20,7 +20,7 @@ class TarjetaTest extends TestCase {
 	public function testCargaSaldoPaseLibre() {
     $tarjeta = new paseLibre;
     $tarjeta->recargar(272);
-    $this->assertEquals($tarjeta->saldo(), falso, "Cuando cargo no me deberia dejar cargar");
+    $this->assertEquals($tarjeta->saldo(), false, "Cuando cargo no me deberia dejar cargar");
   }
 
 
@@ -43,10 +43,9 @@ class TarjetaTest extends TestCase {
   }
 	 public function testPagarViajePaseLibre() {
 	$tarjeta1 = new paseLibre;
-	$tarjeta1->recargar(272);
 	$colectivo144Negro = new Colectivo("144 Negro", "Rosario Bus");
 	$tarjeta1->pagar($colectivo144Negro, "2016/06/30 22:50");
-	$this->assertEquals($tarjeta1->saldo(), "Cuando pago el pasaje me deberian quedar 0 pesos ya que no tiene saldo el paseLibre");	
+	$this->assertEquals($tarjeta1->saldo(),0, "Cuando pago el pasaje me deberian quedar 0 pesos ya que no tiene saldo el paseLibre");	
 
   }
 
