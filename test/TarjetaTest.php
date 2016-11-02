@@ -38,15 +38,25 @@ class TarjetaTest extends TestCase {
 	$this->assertEquals($tarjeta1->saldo(), 320 - 8, "Cuando pago el pasaje me deberian quedar 312 pesos");	
 
   }
+	 public function testPagarViajeBici() {
+	$tarjeta1 = new tarjetaa;
+	$tarjeta1->recargar(272);
+	$bici1234 = new Bici("144675867");
+	$tarjeta1->pagar($bici1234, "2016/06/30 22:50");
+	$this->assertEquals($tarjeta1->saldo(), 320 - 12, "Cuando pago el pasaje me deberian quedar 308 pesos");	
+
+  }
 	
-	public function testinformacion() {
+	/*public function testinformacion() {
 	$tarjeta1 = new tarjetaa;
 	$tarjeta1->recargar(272);
 	$colectivo144Negro = new Colectivo("144 Negro", "Rosario Bus");
 	$tarjeta1->pagar($colectivo144Negro, "2016/06/30 22:50");
 	$this->assertEquals($tarjeta1->boleto->informacion(), "" ."144 Negro" . "2016/06/30 22:50". "tarjeta" .320-8 . 1 
 	, "No funciona la informacion del boleto");	
-	}
+	}*/
+	
+	
 		
 		public function testPagarViajeMedio() {
 	$tarjeta1 = new medio;
