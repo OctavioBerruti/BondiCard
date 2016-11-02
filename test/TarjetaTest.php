@@ -29,6 +29,11 @@ class TarjetaTest extends TestCase {
 
   }
 
+	public function testCardID() {
+	$tarjeta1 = new tarjetaa;
+	$this->assertEquals($tarjeta1->idcard(), 1, "Cuando pido el ID me deberia dar 1");	
+
+  }
 
   public function testPagarViaje() {
 	$tarjeta1 = new tarjetaa;
