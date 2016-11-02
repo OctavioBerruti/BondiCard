@@ -98,16 +98,31 @@ class tarjetaa implements Tarjeta {
                         if($this->ultimoColectivo==$transporte || $diferencia>=$this->dif || $this->transbordos==1 ){
                         
                         $this->valorViaje=8;
-                            if($this->saldoTarjeta>$this->valorViaje || $this->plus < 2){
+                            if($this->saldoTarjeta>$this->valorViaje){
                               $this->tipoPasaje="";
+                                $this->saldoTarjeta=$this->saldoTarjeta-8;
+                                $this->transbordos=0;
+                                $this->ultimoColectivo=$transporte;
+                                $this->ultimaHoraBondi=$fecha_y_hora;                                                           
+                            }
+                            else { 
+                              if($this->plus < 2)
+                              {
+                                $this->tipoPasaje="";
                                 $this->saldoTarjeta=$this->saldoTarjeta-8;
                                 $this->transbordos=0;
                                 $this->ultimoColectivo=$transporte;
                                 $this->ultimaHoraBondi=$fecha_y_hora;
                                 $this->plus=$this->plus+1;                              
-                                $this->plusTot=$this->plusTot+$this->valorViaje;                                
-                            }
-                            else { print "Saldo Insuficiente <br />";}
+                                $this->plusTot=$this->plusTot+$this->valorViaje;   
+                              }
+                              else
+                              {
+                                print "Saldo Insuficiente <br />";}
+                              }
+                              
+                              
+                              
                         }
                          else{                                                               
                                 $this->valorViaje=2.64;
