@@ -114,6 +114,7 @@ public function pagar(Transporte $transporte, $fecha_y_hora){
                                 print "Saldo Insuficiente <br />";
                               }
                              }
+                        }
                          else{
                         $this->valorViaje=2.64;
                         if($this->saldoTarjeta>$this->valorViaje){
