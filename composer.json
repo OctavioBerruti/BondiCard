@@ -1,7 +1,8 @@
 {
     "name": "poli/testing",
     "require": {
-		"phpunit/phpunit": "^5.5"
+		"phpunit/phpunit": "^5.5",
+	    "fzaninotto/faker": "^1.6"
 	},
 	"require-dev": {
 		"satooshi/php-coveralls": "dev-master"
