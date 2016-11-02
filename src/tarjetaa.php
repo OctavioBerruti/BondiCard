@@ -12,7 +12,7 @@ class tarjetaa implements Tarjeta {
         public $transbordos = 0;
         public $cardid = 0; 
         public $tipoBoleto="tarjeta";
-        public $boleto =;
+        public $boleto="";
         public $saldo = 0;
         public $Linea= "";
         public $plus=0;
