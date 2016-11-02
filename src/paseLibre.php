@@ -53,10 +53,12 @@ $this->tipoBoleto = "paseLibre";
 
         public function recargar($monto){
                         print "No se puede recargar credito en un pase libre <br />";
+                        return false;
         }
 
 
          public function saldo(){
-                return "El pase libre no tiene saldo  <br />";
+                print "El pase libre no tiene saldo  <br />";
+                return false;
         }
         }
