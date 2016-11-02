@@ -12,7 +12,7 @@ class tarjetaa implements Tarjeta {
         public $transbordos = 0;
         public $cardid = 0; 
         public $tipoBoleto="tarjeta";
-        public $boleto = [];
+        public $boleto =;
         public $saldo = 0;
         public $Linea= "";
         public $plus=0;
@@ -85,7 +85,7 @@ class tarjetaa implements Tarjeta {
 
 
         $this->viajes[] = new Viaje($transporte,$this->valorViaje);
-        $this->boleto[] = new Boleto($this->tipoPasaje, $transporte, $fecha_y_hora, $this->tipoBoleto, $this->saldoTarjeta, $this->cardid, $this->Linea);
+        $this->boleto = new Boleto($this->tipoPasaje, $transporte, $fecha_y_hora, $this->tipoBoleto, $this->saldoTarjeta, $this->cardid, $this->Linea);
         }
 
 
