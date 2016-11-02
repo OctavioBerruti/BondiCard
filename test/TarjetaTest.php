@@ -22,6 +22,12 @@ class TarjetaTest extends TestCase {
     $tarjeta->recargar(272);
     $this->assertEquals($tarjeta->saldo(), false, "Cuando cargo no me deberia dejar cargar");
   }
+	
+	public function testTipoTransporte() {
+	$colectivo144Negro = new Colectivo("144 Negro", "Rosario Bus");
+	$this->assertEquals($colectivo144Negro->tipo(), "colectivo", "Cuando consulto el tipo del Transporte deberia dar colectivo");	
+
+  }
 
 
   public function testPagarViaje() {
