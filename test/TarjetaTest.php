@@ -44,7 +44,7 @@ class TarjetaTest extends TestCase {
 	$tarjeta1->recargar(272);
 	$colectivo144Negro = new Colectivo("144 Negro", "Rosario Bus");
 	$tarjeta1->pagar($colectivo144Negro, "2016/06/30 22:50");
-	$this->assertEquals($this->boleto[]->informacion(), "La informacion del boleto es la siguiente: <br /> " . "" . "<br />Linea o patente: ". "144 Negro" . "<br />Fecha del boleto: " ."2016/06/30 22:50" . "<br /> Tipo de boleto: " . "tarjeta" . "<br /> Saldo restante: " . 320-8 . "<br /> Numero de tarjeta: " . 1 
+	$this->assertEquals($this->boleto->informacion(), "La informacion del boleto es la siguiente: <br /> " . "" . "<br />Linea o patente: ". "144 Negro" . "<br />Fecha del boleto: " ."2016/06/30 22:50" . "<br /> Tipo de boleto: " . "tarjeta" . "<br /> Saldo restante: " . 320-8 . "<br /> Numero de tarjeta: " . 1 
 	, "No funciona la informacion del boleto");	
 	}
 		
