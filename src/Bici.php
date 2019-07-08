@@ -13,6 +13,6 @@ class Bici extends Transporte {
                 $this->patente=$patente;
         }
 
-
+              
 }
 
